@@ -1,0 +1,6 @@
+Starting with the cool concepts of Javascript, this is a program which contains 2 counters and these counters have been implemented using the concept
+of EVENT DELEGATION.
+
+As an event bubbles up, we check the origin element of the event and perform the required task.
+Here, there are 6 buttons, but with the help of Event Delegation, I have reduced the implementation of 6 event listeners to just 2 as adding and removing
+event listeners comes with an overhead which is not good for the website performance.
