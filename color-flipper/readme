@@ -1,0 +1,8 @@
+Color flipper with 2 options:
+1) Simple: Randomly picks up colors like red, blue, green etc and updates the background color on button click.
+2) Hex: Randomly generates hexadecimal color and updates the background color on the button click.
+
+Deployed here:
+https://master--preeminent-dolphin-7b0699.netlify.app/
+
+This project has been made using Vanilla Javascript.
