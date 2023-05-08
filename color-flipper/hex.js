@@ -6,7 +6,6 @@ let paragraph = document.getElementById("backgroundColorText");
     // we can use padStart or padEnd
     // return "#" + Math.floor(Math.random()*16777215).toString(16).padStart(6, '0').toUpperCase();
 // }
-
 function generateRandomColorHex(event){
     let maxVal = 0xFFFFFF; // 16777215
     let randomNumber = Math.random() * maxVal; 
@@ -14,7 +13,6 @@ function generateRandomColorHex(event){
     randomNumber = randomNumber.toString(16);
     let randColor = "#"+randomNumber.padStart(6, 0);
     document.documentElement.style.setProperty('--background-color', randColor);
-    console.log(randColor);
     paragraph.innerHTML = `Background Color : ${randColor.toUpperCase()}`;
 }
 
