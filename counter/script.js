@@ -7,33 +7,50 @@ let displayCounter2 = document.getElementById("counter2");
 let counterFirst = 0;
 let counterSecond = 0;
 
-const counter1 = (event) => {
-    let counter = 0;
-    console.log(event);
-    
-    const counterCallback1 = (event) => {
-        console.log("hey");
-        if (event.srcElement.innerHTML === "reset") {
-            console.log("Reset pressed");
-            counterFirst = 0;
-            displayCounter1.innerHTML = counterFirst;
-        }
-        else if (event.srcElement.innerHTML === "decrease") {
-            console.log("Decrease pressed");
-            counterFirst--;
-            displayCounter1.innerHTML = counterFirst;
-        }
-        else if (event.srcElement.innerHTML === "increase") {
-            console.log("Increase pressed");
-            counter++;
-            displayCounter1.innerHTML = counter;
-        }
+const counter1 = (initialValue) => {
+    let counter = initialValue;
+  
+    let incrementCounter = () => {
+        counter++;
+        return counter;
     }
-    return counterCallback1;
+
+    let decrementCounter = () => {
+        counter--;
+        return counter;
+    }
+
+    let resetCounter = () => {
+        counter=0;
+        return counter;
+    }
+
+    return {
+        increment:incrementCounter,
+        decrement:decrementCounter,
+        reset:resetCounter
+    };
 }
 
-let callback1 = counter1.bind(counterFirst);
-let callback2 = counter1();
 
-counterBtn1.addEventListener("click", callback1);
-counterBtn2.addEventListener("click", callback2);
+const updateCounter = (event, display, callback) => {
+    if (event.target.innerHTML === "increase") {
+        let value = callback.increment();
+        display.innerHTML = value;
+    }
+    else if (event.target.innerHTML == "decrease") {
+        let value = callback.decrement();
+        display.innerHTML = value;
+    }
+    else {
+        let value = callback.reset();
+        display.innerHTML = value;
+    }
+}
+
+let callback1 = counter1(0);
+let callback2 = counter1(0);
+
+
+counterBtn1.addEventListener("click", (event) => updateCounter(event, displayCounter1, callback1));
+counterBtn2.addEventListener("click", (event) => updateCounter(event, displayCounter2, callback2));
