@@ -1,5 +1,6 @@
 import './style.css';
-
+import leftArrow from "./left_arrow.png";
+import rightArrow from "./right_arrow.png";
 
 // local reviews data
 const reviews = [
@@ -43,20 +44,22 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 
 document.getElementById("app").innerHTML = `
-    <div>
+    <div class='card'>
         <div>
             <h2> Our Reviews </h2>
             <span class="underline"></span>
         </div>
         <article>
-            <div>
-                <img src=${reviews[currentIndex].img} alt="reviewer pic" />
+            <div class='review_card'>
+                <img class="logo" src=${reviews[currentIndex].img} alt="reviewer pic" />
                 <span> ${reviews[currentIndex].name} </span>
                 <span> ${reviews[currentIndex].job} </span>
-                <span> ${reviews[currentIndex].text} </span>
+                <span class="read-the-docs"> ${reviews[currentIndex].text} </span>
                 <span>
-                    <span> </span>
+                    <img src=${leftArrow} alt="left arrow" />
+                    <img src=${rightArrow} alt="right arrow" />
                 </span>
+                <span> Surprise me <span>
             </div>
 
         </article>
