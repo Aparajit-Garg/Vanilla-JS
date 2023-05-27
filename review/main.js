@@ -1,6 +1,4 @@
 import './style.css';
-import leftArrow from "./left_arrow.png";
-import rightArrow from "./right_arrow.png";
 
 // local reviews data
 const reviews = [
@@ -37,31 +35,51 @@ const reviews = [
 
 let currentIndex = 0;
 
-window.addEventListener("DOMContentLoaded", (event) => {
-    
+let author = document.getElementById("name");
+let role = document.getElementById("job");
+let review = document.getElementById("review");
+let img = document.getElementById("profile");
 
+let leftArrowBtn = document.getElementById("leftArrow");
+let rightArrowBtn = document.getElementById("rightArrow");
+let surpriseMeBtn = document.getElementById("surpriseMe");
+
+window.addEventListener("DOMContentLoaded", (event) => {
+    author.innerHTML = reviews[0].name;
+    role.innerHTML = reviews[0].job;
+    review.innerHTML = reviews[0].text;
+    img.src = reviews[0].img;
 });
 
 
-document.getElementById("app").innerHTML = `
-    <div class='card'>
-        <div>
-            <h2> Our Reviews </h2>
-            <span class="underline"></span>
-        </div>
-        <article>
-            <div class='review_card'>
-                <img class="logo" src=${reviews[currentIndex].img} alt="reviewer pic" />
-                <span> ${reviews[currentIndex].name} </span>
-                <span> ${reviews[currentIndex].job} </span>
-                <span class="read-the-docs"> ${reviews[currentIndex].text} </span>
-                <span>
-                    <img src=${leftArrow} alt="left arrow" />
-                    <img src=${rightArrow} alt="right arrow" />
-                </span>
-                <span> Surprise me <span>
-            </div>
+const showPerson = (index) => {
+    console.log(currentIndex);
+    const item = reviews[index];
+    author.innerHTML = reviews[currentIndex].name;
+    role.innerHTML = reviews[currentIndex].job;
+    review.innerHTML = reviews[currentIndex].text;
+    img.src = reviews[currentIndex].img;
+}
 
-        </article>
-    </div>
-`
+
+leftArrowBtn.addEventListener('click', (event) => {
+    if (currentIndex > 0)
+        currentIndex--;
+    else
+        currentIndex = 3;
+    showPerson(currentIndex);
+});
+
+
+rightArrowBtn.addEventListener('click', (event) => {
+    if (currentIndex < 3)
+        currentIndex++;
+    else
+        currentIndex = 0;
+    showPerson(currentIndex);
+});
+
+surpriseMeBtn.addEventListener('click', (event) => {
+    currentIndex = Math.floor(Math.random() * reviews.length);
+    showPerson(currentIndex);
+})

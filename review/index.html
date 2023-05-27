@@ -2,12 +2,35 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+        <div class='card'>
+            <div>
+                <h1> Our Reviews </h1>
+                <span class="underline"></span>
+            </div>
+            <article>
+                <div class='review_card'>
+                    <img id="profile" class="logo" src="" alt="reviewer pic" />
+                    <span>
+                        <span id="name"> </span>
+                        <span id="job"> </span>
+                    </span>
+                    <span id="review" class="read-the-docs"> ${reviews[currentIndex].text} </span>
+                    <span>
+                        <button id="leftArrow"> &lt; </button>
+                        <button id="rightArrow"> &gt; </button>
+                    </span>
+                    <span> <button id="surpriseMe"> Surprise me </button> <span>
+                </div>
+    
+            </article>
+        </div>
+    </div>
     <script type="module" src="/main.js"></script>
   </body>
 </html>

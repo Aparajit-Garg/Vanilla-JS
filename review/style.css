@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: hsl(209, 61%, 16%);
+  background-color: hsl(210, 36%, 96%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -15,10 +15,24 @@
 }
 
 #app {
+    height: 100vh;
+    max-width: 620px;
+    margin: auto;
+}
+
+
+.card {
     display: flex;
     justify-content: center;
     align-items: center;
-    max-width: 620px;
+    height: 100vh;
+    flex-direction: column;
+    gap: 3rem;
+    /* max-width: 1000px; */
+}
+
+h1 {
+    color:hsl(209, 61%, 16%);
 }
 
 img {
@@ -27,13 +41,20 @@ img {
     border-radius: 50%;
 }
 
-.card {
+.card > div {
     display: flex;
-    
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    /* max-width: 1000px; */
+}
+
+.card .underline {
+    width: 4rem;
+    border-radius: 20px;
+    background-color: hsl(205, 78%, 60%);
+    height: 0.2rem;
+    max-width: 4rem;
+    color: hsl(205, 78%, 60%);
+    align-items: center;
 }
 
 
@@ -42,4 +63,60 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: white;
+    padding: 1rem 2rem;
+    color: black;
+    gap: 1rem;
+}
+
+.review_card > span:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.review_card > span:nth-child(2) > span:first-child {
+    font-weight: 600;
+    letter-spacing: 0.2rem;
+    text-transform: capitalize;
+}
+
+.review_card > span:nth-child(2) > span:nth-child(2) {
+    text-transform: uppercase;
+    color: hsl(205, 78%, 60%);
+    font-size: 0.8em;
+}
+
+.read-the-docs {
+    text-align: center;
+    line-height: 1.5rem;
+}
+
+.review_card > span:nth-child(4) {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.review_card > span:nth-child(4) img {
+    width: 25px;
+    height: 30px;
+    cursor: pointer;
+}
+
+
+.review_card > span:nth-child(5) button {
+    color: hsl(205, 78%, 60%);
+    background-color: hsl(205, 100%, 96%);
+    padding: 0.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    text-transform: capitalize;
+    border-color: hsl(205, 78%, 60%);
+    transition: all 0.3s linear;
+}
+
+.review_card > span:nth-child(5) button:hover {
+    color: black;
+    background-color: hsl(205, 78%, 60%);
+    /* background-color: ; */
 }
